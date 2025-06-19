@@ -13,21 +13,21 @@ const listaQualquer1 = [];
 const listaQualquer2 : any[] = [];
 
 // Enum
-enum TipoTransacao {
-    DEPOSITO = "Depósito",
-    TRANSFERENCIA = "Transferência",
-    PAGAMENTO_BOLETO = "Pagamento de Boleto"
-}
+// enum TipoTransacao {
+//     DEPOSITO = "Depósito",
+//     TRANSFERENCIA = "Transferência",
+//     PAGAMENTO_BOLETO = "Pagamento de Boleto"
+// }
 
 // Tipos personalizados (Type alias)
-type Transacao = {
-    tipo : TipoTransacao,
-    data : Date,
-    valor : number
-}
+// type Transacao = {
+//     tipo : TipoTransacao,
+//     data : Date,
+//     valor : number
+// }
 
-const outraTransacao : Transacao = {
-    tipo: TipoTransacao.DEPOSITO,
-    data: new Date(),
-    valor: 3000
-}
+// const outraTransacao : Transacao = {
+//     tipo: TipoTransacao.DEPOSITO,
+//     data: new Date(),
+//     valor: 3000
+// }
