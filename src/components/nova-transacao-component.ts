@@ -1,6 +1,7 @@
 import Conta from "../types/Conta.js";
 import { TipoTransacao } from "../types/TipoTransacao.js";
 import { Transacao } from "../types/Transacao.js";
+import ExtratoComponent from "./extrato-component.js";
 import SaldoComponent from "./saldo-component.js";
 
 const elementoFormulario = document.querySelector(".block-nova-transacao form") as HTMLFormElement;
@@ -17,7 +18,7 @@ elementoFormulario.addEventListener("submit", function(evt) {
 
     let tipoTransacao : TipoTransacao = inputTipoTransacao.value as TipoTransacao;
     let valor : number = inputValor.valueAsNumber;
-    let data : Date = new Date(inputData.value);
+    let data : Date = new Date(inputData.value + " 00:00:00");
 
     const novaTransacao : Transacao = {
         tipo: tipoTransacao,
@@ -25,7 +26,12 @@ elementoFormulario.addEventListener("submit", function(evt) {
         data: data
     }
 
-    Conta.registrarTransacao(novaTransacao);
-    SaldoComponent.atualizar();
-    elementoFormulario.reset();
+    try {
+        Conta.registrarTransacao(novaTransacao);
+        SaldoComponent.atualizar();
+        ExtratoComponent.atualizar();
+        elementoFormulario.reset();
+    } catch(erro) {
+        alert(erro.message);
+    }
 });
